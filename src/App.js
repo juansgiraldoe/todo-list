@@ -8,7 +8,7 @@ import { CreateTodoButton } from "./components/CreateTodoButton";
 
 const todos = [
   {text: 'Ir a multiplaza', completed: false},
-  {text: 'Avanzar en Product Design', completed: false},
+  {text: 'Avanzar en Product Design', completed: true},
   {text: 'Verificar trello', completed: false},
 ]
 
@@ -18,10 +18,13 @@ function App() {
       <TodoCounter/>
       
       <TodoSearch/>
-      <input placeholder="¿Tienes pendientes?"/>
       <TodoList>
         {todos.map( todo => (
-          <TodoItem key={todo.text} text={todo.text}/>
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
         ))}
         </TodoList>
       <CreateTodoButton/>
